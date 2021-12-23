@@ -1,0 +1,87 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 4</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+  
+  <ion-grid>
+    <ion-row class="margin_toolbar">
+      <ion-col >
+
+        <ion-card>
+          <ion-card-header>
+            
+            <ion-avatar>
+              <img src="https://th.bing.com/th/id/R.c806589295b732b4d13a5b68bbb560a0?rik=iqhl0u4nOvsjkA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_184513.png&ehk=SewvAmum19vsY7YXrHHH2ZPm%2bboA4S2ENK7Gypz6c3A%3d&risl=&pid=ImgRaw&r=0"
+              >
+            </ion-avatar>
+          <ion-card-title class="ion-text-center">Create an account</ion-card-title>
+      
+        
+          </ion-card-header>
+      
+          <ion-card-content>
+            <form [formGroup] = "signupForm" >
+           
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-icon slot="start" name="mail-open-outline"></ion-icon>
+              <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+              <!--ErrorMessage.Email-->
+              <div *ngFor="let error of errorMessages.email">
+                <ng-container *ngIf='email.hasError(error.type) && (email.dirty || email.touched)'>
+                  <small class="error-message">{{error.message}}</small>
+                </ng-container>
+              </div>
+
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+              <ion-input type="text" formControlName="username"></ion-input>
+            </ion-item>
+            
+             <!--ErrorMessage.UserName-->
+              <div *ngFor="let error of errorMessages.username">
+                <ng-container *ngIf='username.hasError(error.type) && (username.dirty || username.touched)'>
+                  <small class="error-message">{{error.message}}</small>
+                </ng-container>
+              </div>
+
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-icon slot="start" name="lock-open-outline"></ion-icon>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+
+               <!--ErrorMessage.password-->
+                <div *ngFor="let error of errorMessages.password">
+                  <ng-container *ngIf='password.hasError(error.type) && (password.dirty || password.touched)'>
+                    <small class="error-message">{{error.message}}</small>
+                  </ng-container>
+                </div>
+
+            <ion-button type="submit" class="ion-padding ion-padding-bottom" expand="block" (click)="signUp()">SignUp</ion-button>
+            </form>
+          </ion-card-content>
+        
+        </ion-card>
+      </ion-col>
+  </ion-row>
+  </ion-grid>
+
+
+  <ion-button color = "transparent" class="round" expand="block" fill="clear" href="/home">
+    <ion-text color = "danger" >
+      <p  class="ion-text-center">Login</p>
+    </ion-text>
+  </ion-button>
+
+
+
+</ion-content>
